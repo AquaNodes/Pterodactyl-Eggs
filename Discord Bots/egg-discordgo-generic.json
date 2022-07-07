@@ -1,0 +1,52 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2022-07-07T16:01:37+02:00",
+    "name": "discordgo generic",
+    "author": "parker@parkervcp.com",
+    "description": "A generic golang egg.\r\n\r\nMeant to be customized before it is used.",
+    "features": null,
+    "docker_images": {
+        "quay.io\/parkervcp\/pterodactyl-images:base_debian": "quay.io\/parkervcp\/pterodactyl-images:base_debian"
+    },
+    "file_denylist": [],
+    "startup": ".\/${EXECUTABLE}",
+    "config": {
+        "files": "{}",
+        "startup": "{}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\r\n# golang generic package\r\n\r\n\r\nif [ ! -d \/mnt\/server\/ ]; then\r\n    mkdir -p \/mnt\/server\/\r\nfi\r\n\r\ngo get ${GO_PACKAGE}\r\n\r\ncd src\/${GO_PACKAGE}\r\n\r\ngo get\r\n\r\ngo build\r\n\r\ncp -f ${EXECUTABLE} \/mnt\/server\/",
+            "container": "golang:1.15-buster",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Go Package",
+            "description": "Go package to get and build",
+            "env_variable": "GO_PACKAGE",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string",
+            "field_type": "text"
+        },
+        {
+            "name": "Executable",
+            "description": "This is the executable from the bot build.",
+            "env_variable": "EXECUTABLE",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|string",
+            "field_type": "text"
+        }
+    ]
+}
