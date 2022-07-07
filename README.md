@@ -63,6 +63,6 @@ If you are reading this it looks like you are looking to add an egg to your serv
 ## Any issues?
 * [Discord](https://dsc.gg/aquanodes)
 
-## Credits
+## Copyright
 * Copyright © 2015 - 2022 [Pterodatyl](https://pterodactyl.io) 
 * Copyright © 2022 [AquaNodes](https://aquanodes.live)
